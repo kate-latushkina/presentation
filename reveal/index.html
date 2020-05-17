@@ -1,0 +1,757 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Presentation</title>
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<!-- 1 -->
+			<section>
+				<h2 style="color: yellow">JavaScript</h2>
+				<p>history and the ECMAScript specification</p>
+				<br>
+				<div class="logo">
+					<img width="238" height="238" data-src="./img/logo-rs.svg" alt="JS" class="right-img">
+					<img width="238" height="238" data-src="./img/js.png" alt="JS" class="right-img">
+				</div>
+				<p>by Ekaterina Latushkina</p>
+			</section>
+			<!-- 2 -->
+			<section>
+				<p>In September 1995, a Netscape programmer named Brandan Eich developed a new scripting language in just 10 days.</p>
+				<h3 style="color: blue">Mocha</h3>&#8659;<h3 style="color: green">LiveScript</h3>&#8659;<h3 style="color: yellow">JavaScript</h3>
+			</section>
+			<!-- 3 -->
+			<section>
+				<h2>Javascript != Java</h2>
+				<img src="./img/113315.jpg" alt="Js-vs-Java" width="600" height="400">
+			</section>
+			<!-- 4 -->
+			<section>
+				<h3 style="color: green">ECMAScript</h3>
+				<img src="./img/ecmascript.png" alt="ecmascript">
+				<p class="fragment" data-fragment-index="1">It`s common practice now to abbreviate the standarts specification to simply ES X, although the X will be changing in 2016 (to a yearly release cadence).</p>
+			</section>
+			<!-- 5 -->
+			<section>
+				<h3 style="color: violet">ECMAScript 1</h3>
+				<p>First version of the JavaScript language standart, was released in June 1997.</p>
+				<p>JavaScript connected in HTML as follows:</p>
+				<pre>
+					<code class="hljs" data-trim data-line-numbers="4">
+					&lt;html&gt;
+					  &lt;body&gt;
+					    &lt;script language="JavaScript"&gt;
+						    document.write("It`s JavaScript")
+					    &lt;/script&gt;
+					  &lt;/body&gt;	
+					&lt;/html&gt;	
+					</code>
+				</pre>
+			</section>
+			<!-- 6 -->
+			<section>
+				<h3 style="color: violet">ECMAScript 2</h3>
+				<p>Second version was released in June 1998. Was added editional changes to keep the specification fully aligned with ISO/IEC 16262 international standart.</p>
+			</section>
+			<!-- 7 -->
+			<section>
+				<h3 style="color: violet">ECMAScript 3</h3>
+				<p>Third version was released in December 1999.</p>
+				<p>Added:</p>
+				<ul>
+					<li>regular expressions</li>
+				</ul>
+				<pre>
+					<code class="hljs" data-trim data-line-numbers="1-6">
+					var text = "Hello. I`m Javascript";
+					  if (/I/i.test(text)) {
+					    document.write("True");
+					  } else {
+					    document.write("False");
+						}
+					// True
+					</code>
+				</pre>
+			</section>
+			<!-- 8 -->
+			<section>
+				<ul>
+					<li>do/while</li>
+				</ul>
+				<pre>
+					<code class="hljs" data-trim data-line-numbers="1-8">
+					var result = "";
+					var i = 0;
+					do {
+					 i += 1;
+					 result += i + " ";
+					}
+					while (i > 0 && i < 5) 
+					document.write(result);
+					// 1 2 3 4 5
+					</code>
+				</pre>
+			</section>
+			<!-- 9 -->
+			<section>
+				<ul>
+					<li>try/catch exception handling</li>
+					<pre>
+						<code class="hljs" data-trim data-line-numbers="1-6">
+						try {
+						throw 'myException'; // generates an exception
+						} catch (error) {
+						// statements to handle any exceptions
+						 document.write(error);
+						}
+						</code>
+					</pre>
+					<li>formating for numeric output and other</li>
+				</ul>
+			</section>
+			<!-- 10 -->
+			<section>
+				<h3 style="color: violet">ECMAScript 4</h3>
+				<p>Work began on ECMAScript 4 in early 2000 but was abandoned due to political differences concerning language complexity.</p>
+				<p>Many features proposed to the Fourth Edition have been completely dropped; some were incorporated into 6th editional.</p>
+			</section>
+			<!-- 11 -->
+			<section>
+				<h3 style="color: violet">ECMAScript 5</h3>
+				<p>ECMAScript 5 was reseased in December 2009, more than a dexade after ES3.</p>
+				<p class="fragment" data-fragment-index="1">Added:</p>
+				<ul class="fragment" data-fragment-index="1">
+					<li>'strict mode'</li>
+				</ul>
+				<pre class="fragment" data-fragment-index="1">
+					<code class="hljs" data-trim data-line-numbers="1-2">
+					'use strict';
+					x = 3.14;  // This will couse an error because x is not declared
+					</code>
+				</pre>
+			</section>
+			<!-- 12 -->	
+			<section>
+				<ul>
+					<li>getters and setters</li>
+				</ul>
+				<pre>
+					<code class="hljs" data-trim data-line-numbers="1-8">
+						var obj = {
+						 get propName() {
+						 // getter, the code execude on getting obj.propName
+						 },
+						 set propName(value) {
+						 // setter, the code execude on setting obj.propName = value
+						 }
+						};
+					</code>
+				</pre>
+			</section>
+			<!-- 13 -->
+			<section>
+				<ul>
+					<li>library support for JSON (stringify, parse)</li>
+				<pre>
+					<code class="hljs" data-trim data-line-numbers="1,4-5,7">
+					console.log(JSON.stringify({x: 5, y: 6}));
+					// expected output: "{'x': 5, 'y': 6}"
+
+					var json = "{'x': 5, 'y': 6}";
+					var obj = JSON.parse(json);
+
+					console.log(obj.x);
+					// expected output: 5
+					</code>
+				</pre>
+					<li class="fragment" data-fragment-index="1">reserved words as property names <br>
+						(new, for, break, null, try etc.)</li>
+				</ul>
+			</section>
+			<!-- 14 -->
+			<section>
+				<ul>
+					<li>Array.prototype.methods</li>
+				</ul>
+				<br>
+					<span class="methods">forEach()</span>
+					<pre>
+						<code class="hljs" data-trim data-line-numbers="1-4">
+							var array1 = ['a', 'b', 'c'];
+							array1.forEach(function(element) {
+							 console.log(element);
+							})
+							// expected output: "a"
+							// expected output: "b"
+							// expected output: "c"
+						</code>
+					</pre>
+			</section>
+			<!-- 15 -->
+			<section>
+				<span class="methods">map()</span>
+				<pre>
+					<code class="hljs" data-trim data-line-numbers="1-5">
+					var array = [1, 4, 9];
+					var mapArray = array.map(function(num) {
+						num * 2;
+					});
+					console.log(mapArray);
+					// expected output: Array [2, 8, 18]
+					</code>
+				</pre>
+				<span class="fragment methods" data-fragment-index="1">filter()</span>
+				<pre class="fragment" data-fragment-index="1">
+					<code class="hljs" data-trim data-line-numbers="1-5">
+					var words = ['spray', 'limit', 'exuberant', 'destruction'];
+					var result = words.filter(function(word) {
+					 word.length > 6;
+					});
+					console.log(result);
+					// expected output: Array ["exuberant", "destruction"]
+					</code>
+				</pre>
+			</section>
+			<!-- 16 -->
+			<section>
+				<span class="methods">some()</span>
+				<pre>
+					<code class="hljs" data-trim data-line-numbers="1,3-6">
+					var array = [1, 2, 3, 4, 5];
+					// checks whether an element is even
+					var even = function(element) {
+					 element % 2 === 0
+					};
+					console.log(array.some(even));
+					// expected output: true
+					</code>
+				</pre>
+				<span class="fragment methods" data-fragment-index="1">every()</span>
+				<pre class="fragment" data-fragment-index="1">
+					<code class="hljs" data-trim data-line-numbers="1-5">
+					var isSmallNum = function(currentValue) {
+						currentValue < 40
+					};
+					var array = [1, 30, 39, 29, 10, 13];
+					console.log(array.every(isSmallNum));
+					// expected output: true
+					</code>
+				</pre>
+			</section>
+			<!-- 17 -->
+			<section>
+				<span style="color: teal">indexOf() / lastIndexOf()</span>
+				<pre>
+					<code class="hljs" data-trim data-line-numbers="1,2,5">
+					var beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
+					console.log(beasts.indexOf('bison'));
+					// expected output: 1
+						
+					console.log(beasts.lastIndexOf('bison'));
+					// expected output: 4
+					</code>
+				</pre>
+			</section>
+			<!-- 18 -->
+			<section>
+				<h3 style="color: violet">ECMAScript 6 / ECMAScript 2015</h3>
+				<p>The 6th edition, initially known as ECMAScript 6 then and later renamed ti ECMAScript 2015, was finalized in June 2015.</p>
+				<p class="fragment" data-fragment-index="1">Added new features:</p>
+				<ul class="fragment" data-fragment-index="1">
+					<li>arrow function expression</li>
+				</ul>
+			</section>
+			<!-- 19 -->
+			<section class="double">
+				<div class="double-block">
+					<h4 class="specification">ES5</h4>
+					<pre class="code-double">
+						<code class="hljs" data-trim data-line-numbers="1-3">
+							function greetings (name) {
+							 return 'hello ' + name;
+							}
+						</code>
+					</pre>
+				</div>
+				<div class="double-block">
+					<h4 class="specification">ES6</h4>
+					<pre class="code-double">
+						<code class="hljs" data-trim data-line-numbers="1-3">
+							const greetings = (name) => {
+							 return `hello ${name}`;
+							}
+						</code>
+					</pre>
+					<pre class="code-double" style="min-width: 110%;">
+						<code class="hljs" data-trim data-line-numbers="1">
+							const greetings = name => `hello ${name}`;
+						</code>
+					</pre>
+				</div>
+			</section>
+
+			<!-- 20 -->
+			<section>
+				<ul>
+					<li>const keyword for constant local declarations</li>
+					<pre>
+						<code class="hljs" data-trim data-line-numbers="1-5">
+							// ES5
+							var word = 'Hello';
+
+							// ES6
+							const word = 'Hello';
+						</code>
+					</pre>
+
+					<li class="fragment" data-fragment-index="1">let keyword for local declarations</li>
+					<pre class="fragment" data-fragment-index="1">
+						<code class="hljs" data-trim data-line-numbers="1-5">
+							// ES5
+							var word = 'Hello';
+
+							// ES6
+							let word = 'Hello';
+						</code>
+					</pre>					
+				</ul>
+			</section>
+			
+			<!-- 21 -->
+			<section>
+				<ul>
+					<li>Promises</li>
+				</ul>
+				<div class="double">
+					<div class="double-block">
+						<h4 class="specification">ES5</h4>
+						<pre class="code-double">
+							<code class="hljs" data-trim data-line-numbers="1-14">
+								function isGreater (a, b, cb) {
+								var greater = false
+								if(a > b) {
+								 greater = true
+								 }
+								 cb(greater)
+								}
+								isGreater(1, 2, function (result) {
+								if(result) {
+								 console.log('greater');
+								} else {
+								 console.log('smaller')
+								 }
+								})
+							</code>
+						</pre>
+					</div>
+					<div class="double-block">
+						<h4 class="specification">ES6</h4>
+						<pre class="code-double">
+							<code class="hljs" data-trim data-line-numbers="1-16">
+							const isGreater = (a, b) => {
+							return new Promise((res, rej) => {
+							 if(a > b) {
+							  res(true)
+							  } else { rej(false) }
+							})
+							}
+							isGreater(1, 2)
+							.then(result => {
+							 console.log('greater')
+							})
+							.catch(result => {
+							 console.log('smaller')
+							})
+							</code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			
+			<!-- 22 -->
+			<section>
+				<ul>
+					<li>Exporting & Importing Modules</li>
+				</ul>
+				<div class="double">
+					<div class="double-block">
+						<h4 class="specification">ES5</h4>
+						<pre class="code-double">
+							<code class="hljs" data-trim data-line-numbers="1-14">
+							var myModule = { x:1, y:function(){ 
+							 console.log('This is ES5') 
+							 }}
+							module.exports = myModule;
+							</code>
+						</pre>
+						<pre class="code-double">
+							<code class="hljs" data-trim data-line-numbers="1">
+							var myModule = require('./myModule')
+							</code>
+						</pre>
+					</div>
+					<div class="double-block">
+						<h4 class="specification">ES6</h4>
+						<pre class="code-double">
+							<code class="hljs" data-trim data-line-numbers="1-16">
+							const myModule = { x: 1, y: () => { 
+							 console.log('This is ES5') 
+							 }}
+							export default myModule;
+							</code>
+						</pre>
+						<pre class="code-double">
+							<code class="hljs" data-trim data-line-numbers="1">
+							import myModule from './myModule';
+							</code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			
+			<!-- 23 -->
+			<section>
+				<ul>
+					<li>Classes</li>
+				</ul>
+				<div class="double">
+					<div class="double-block">
+						<h4 class="specification">ES5</h4>
+						<pre class="code-double">
+							<code class="hljs medium-code-size" data-trim data-line-numbers="1-14">
+							var Person = function(name) {
+							 this.name = name;
+							};
+								
+							Person.prototype.sayName = function() {
+							 console.log('Person '+this.name+' said his name');
+							};
+								
+							var john = new Person('John');
+							john.sayName(); // Person John said his name
+							</code>
+						</pre>
+					</div>
+					<div class="double-block">
+						<h4 class="specification">ES6</h4>
+						<pre class="code-double">
+							<code class="hljs medium-code-size" data-trim data-line-numbers="1-16">
+							class Person {
+							 constructor(name) {
+							 this.name = name;
+							 }
+								
+							 sayName() {
+							 console.log(`Person ${this.name} said his name`);
+							 }
+							}
+				
+							const john = new Person('John');
+							john.sayName(); // Person John said his name
+							</code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			
+			<!-- 24 -->
+			<section>
+				<h3 style="color: violet">ECMAScript 7 / ECMAScript 2016</h3>
+				<p>The 7th edition, officially known as ECMAScript 2016, was finalized in June 2016. The major standart language features include:</p>
+				<ul class="fragment" data-fragment-index="1">
+					<li>Array.includes() method</li>
+				</ul>
+				<div class="fragment double" data-fragment-index="1">
+					<div class="double-block">
+						<h4 class="specification">ES6</h4>
+						<pre class="code-double">
+							<code class="hljs medium-code-size" data-trim data-line-numbers="1-4">
+							let numbers = [1, 2, 3, 4];
+							if(numbers.indexOf(2) !== -1) {
+							 console.log('Array contains value');
+							}
+							</code>
+						</pre>
+					</div>
+					<div class="double-block">
+						<h4 class="specification">ES7</h4>
+						<pre class="code-double">
+							<code class="hljs medium-code-size" data-trim data-line-numbers="1-4">
+							let numbers = [1, 2, 3, 4];
+							if(numbers.includes(2)) {
+							 console.log('Array contains value');
+							}
+							</code>
+						</pre>
+					</div>
+				</div>
+			</section>
+				
+			<!-- 25 -->
+			<section>
+				<ul>
+					<li>exponentiation operator for numbers</li>
+				</ul>
+				<div class="double">
+					<div class="double-block">
+						<h4 class="specification">ES6</h4>
+						<pre class="code-double">
+							<code class="hljs medium-code-size" data-trim data-line-numbers="1-3">
+							let x = 3;
+							let y = 2;
+							console.log(Math.pow(x, y)); 
+							// 9
+							</code>
+						</pre>
+					</div>
+					<div class="double-block">
+						<h4 class="specification">ES7</h4>
+						<pre class="code-double">
+							<code class="hljs medium-code-size" data-trim data-line-numbers="1-2">
+							let squared = 3 ** 2;
+							console.log(squared); 
+							// 9
+							</code>
+						</pre>
+					</div>
+				</div>
+			</section>
+				
+			<!-- 26 -->
+			<section>
+				<ul>
+					<li>async / await</li>
+				</ul>
+				<pre>
+					<code class="hljs" data-trim data-line-numbers="1-13">
+					async function firstAsync() {
+					 let promise = new Promise((res, rej) => {
+						setTimeout(() => res("Now it's done!"), 1000)
+					 });
+					
+					 // wait until the promise returns us a value
+					 let result = await promise; 
+						
+					 // "Now it's done!"
+					 alert(result); 
+					 }
+					};
+					firstAsync();
+					</code>
+				</pre>	
+			</section>
+			
+			<!-- 27 -->
+			<section>
+				<h3 style="color: violet">ECMAScript 8 / ECMAScript 2017</h3>
+				<p>Was finalized in June 2017. Includes:</p>
+				<ul>
+					<li>Object.values()</li>
+					<pre>
+						<code class="hljs" data-trim data-line-numbers="1-13">
+						const countries = {
+						 BR: 'Brazil',
+						 DE: 'Germany',
+						 RO: 'Romania',
+						 PL: 'Poland'
+						};
+						</code>
+					</pre>	
+					<pre>
+						<code class="hljs" data-trim data-line-numbers="1-13" style="width: 600px;">
+						Object.values(countries); 
+						// ['Brazil', 'Germany', 'Romania', 'Poland']
+						</code>
+					</pre>	
+				</ul>
+			</section>
+						
+			<!-- 28 -->
+			<section>
+				<ul>
+					<li>Object.entries()</li>
+					<pre>
+						<code class="hljs" data-trim data-line-numbers="1-8" style="width: 1000px; margin-left: -70px;">
+						const countries = {
+						 BR: 'Brazil',
+						 DE: 'Germany',
+						 RO: 'Romania',
+						 PL: 'Poland'
+						};
+
+						Object.entries(countries); 
+
+						//[['BR', 'Brazil'], ['DE', 'Germany'], ['RO', 'Romania'], ['PL','Poland']]
+						</code>
+					</pre>		
+				</ul>
+			</section>
+						
+			<!-- 29 -->
+			<section>
+				<ul>
+					<li>Object.getOwnPropertyDescriptors()</li>
+					<pre>
+						<code class="hljs" data-trim data-line-numbers="1-10" style="width: 850px;">
+						const object1 = {
+						 property1: 42,
+						};
+						const descriptors1 = Object.getOwnPropertyDescriptors(object1);
+							
+						console.log(descriptors1.property1.writable);
+						// expected output: true
+							
+						console.log(descriptors1.property1.value);
+						// expected output: 42
+						</code>
+					</pre>		
+				</ul>
+			</section>
+						
+			<!-- 30 -->
+			<section>
+				<h3 style="color: violet">ECMAScript 9 / ECMAScript 2018</h3>
+				<p>Was finalized in June 2018. New features include:</p>
+				<ul>
+					<li>rest</li>
+				</ul>
+				<pre>
+					<code class="hljs" data-trim data-line-numbers="1-10">
+					const foo = {
+					 empanadas: 6,
+					 milanesas: 2,
+					 yerba: "1 Kg",
+					};
+					const { yerba, ...rest } = foo;
+					console.log(yerba); // Prints "1 Kg"
+					console.log(rest); // Prints {empanadas: 6, milanesas: 2}
+					</code>
+				</pre>
+				<p style="font-size: 30px;">We can use the rest operator at most once and it must be last.</p>	
+			</section>
+						
+			<!-- 31 -->
+			<section>
+				<ul>
+					<li>spread</li>
+				</ul>
+				<pre>
+					<code class="hljs" data-trim data-line-numbers="1-13">
+					const foo = {
+					 empanadas: 6,
+					 milanesas: 2,
+					 yerba: "1 Kg",
+					};
+					const bar = { ...foo, empanadas: 12  };
+					console.log(bar); // Prints 
+					/**
+					* {
+					*   empanadas: 12,
+					*   milanesas: 2,
+					*   yerba: "1 Kg",
+					**/
+					</code>
+				</pre>
+				<p style="font-size: 30px;">If we have conflicts with keys (empanadas), last one wins (empanadas : 12). This is useful to override default keys.</p>
+			</section>
+
+			<!-- 32 -->
+			<section>
+				<ul>
+					<li>finally()</li>
+					<pre style="width: 700px;">
+						<code class="hljs" data-trim data-line-numbers="1-4">
+						fetch(url)
+						 .then()
+						 .catch()
+						 .finally(() => console.log(`I'm always called!`));
+						</code>
+					</pre>
+					<li class="fragment" data-fragment-index="1">and additions ro RegExp</li>
+				</ul>
+			</section>
+			
+			<!-- 33 -->
+			<section>
+				<h3 style="color: violet">ECMAScript 10 / ECMAScript 2019</h3>
+				<p>Was published in June 2019. Added:</p>
+				<ul class="fragment" data-fragment-index="1">
+					<li>Array.flat()</li>
+					<img src="./img/flat.png" alt="" srcset="">
+				</ul>
+			</section>
+			
+			<!-- 34 -->
+			<section>
+				<ul>
+					<li>Array.flatMap()</li>
+					<img src="./img/flatMap.png" alt="" srcset="">
+				</ul>
+			</section>
+			
+			<!-- 35 -->
+			<section>
+				<ul>
+					<li>Object.fromEntries()</li>
+					<img src="./img/fromEntries.png" alt="" srcset="">
+				</ul>
+			</section>
+
+			<!-- 36 -->
+			<section>
+				<ul>
+					<li>Optional catch binding</li>
+					<img src="./img/catch.png" alt="" srcset="">
+				</ul>
+			</section>
+
+			<!-- last -->
+			<section>
+				<h3 style="color: rgb(62, 165, 84)">Thank you for watching...</h3>
+			</section>
+
+		</div>
+	</div>
+
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			hash: true,
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/highlight/highlight.js' },
+				{ src: 'plugin/notes/notes.js', async: true }
+			]
+		});
+	</script>
+</body>
+
+</html>
