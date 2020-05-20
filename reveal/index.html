@@ -141,7 +141,7 @@
 			<!-- 11 -->
 			<section>
 				<h3 style="color: violet">ECMAScript 5</h3>
-				<p>ECMAScript 5 was reseased in December 2009, more than a dexade after ES3.</p>
+				<p>ECMAScript 5 was reseased in December 2009, more than a decade after ES3.</p>
 				<p class="fragment" data-fragment-index="1">Added:</p>
 				<ul class="fragment" data-fragment-index="1">
 					<li>'strict mode'</li>
@@ -217,7 +217,7 @@
 					<code class="hljs" data-trim data-line-numbers="1-5">
 					var array = [1, 4, 9];
 					var mapArray = array.map(function(num) {
-						num * 2;
+					 num * 2;
 					});
 					console.log(mapArray);
 					// expected output: Array [2, 8, 18]
@@ -253,7 +253,7 @@
 				<pre class="fragment" data-fragment-index="1">
 					<code class="hljs" data-trim data-line-numbers="1-5">
 					var isSmallNum = function(currentValue) {
-						currentValue < 40
+					 currentValue < 40
 					};
 					var array = [1, 30, 39, 29, 10, 13];
 					console.log(array.every(isSmallNum));
@@ -533,6 +533,7 @@
 							<code class="hljs medium-code-size" data-trim data-line-numbers="1-2">
 							let squared = 3 ** 2;
 							console.log(squared); 
+
 							// 9
 							</code>
 						</pre>
@@ -549,7 +550,7 @@
 					<code class="hljs" data-trim data-line-numbers="1-13">
 					async function firstAsync() {
 					 let promise = new Promise((res, rej) => {
-						setTimeout(() => res("Now it's done!"), 1000)
+					  setTimeout(() => res("Now it's done!"), 1000)
 					 });
 					
 					 // wait until the promise returns us a value
